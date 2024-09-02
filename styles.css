@@ -222,6 +222,10 @@ body {
     transform-origin: bottom center;
   }
 
+  .minute-hand {
+    height: 120px; /* Adjusted height for the minute hand */
+  }
+
   h1 {
     font-size: 24px; /* Adjust heading size */
   }
@@ -229,6 +233,7 @@ body {
   .remove-button {
     font-size: 14px; /* Adjust button font size */
     padding: 5px; /* Adjust button padding */
+    margin-top: 10px; /* Add space above the button */
   }
 
   .modal-content {
@@ -257,6 +262,19 @@ body {
     margin: 0 auto; /* Center the clock */
   }
 
+  .hour-hand,
+  .minute-hand {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: #c0c0c0; /* Color of the hour and minute hands */
+    transform-origin: bottom center;
+  }
+
+  .minute-hand {
+    height: 100px; /* Adjusted height for the minute hand */
+  }
+
   h1 {
     font-size: 20px; /* Further adjust heading size */
   }
@@ -264,6 +282,7 @@ body {
   .remove-button {
     font-size: 12px; /* Adjust button font size */
     padding: 4px; /* Adjust button padding */
+    margin-top: 10px; /* Add space above the button */
   }
 
   .modal-content {
