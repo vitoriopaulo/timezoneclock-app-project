@@ -222,12 +222,20 @@ body {
     transform-origin: bottom center;
   }
 
+  .hour-hand {
+    height: 80px; /* Adjusted height for the hour hand */
+  }
+
   .minute-hand {
-    height: 120px; /* Adjusted height for the minute hand */
+    height: 100px; /* Adjusted height for the minute hand */
   }
 
   h1 {
     font-size: 24px; /* Adjust heading size */
+  }
+
+  h2 {
+    margin-bottom: 10px; /* Add space below the H2 element */
   }
 
   .remove-button {
@@ -271,12 +279,20 @@ body {
     transform-origin: bottom center;
   }
 
+  .hour-hand {
+    height: 60px; /* Adjusted height for the hour hand */
+  }
+
   .minute-hand {
-    height: 100px; /* Adjusted height for the minute hand */
+    height: 80px; /* Adjusted height for the minute hand */
   }
 
   h1 {
     font-size: 20px; /* Further adjust heading size */
+  }
+
+  h2 {
+    margin-bottom: 10px; /* Add space below the H2 element */
   }
 
   .remove-button {
