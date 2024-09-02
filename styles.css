@@ -148,3 +148,70 @@ body {
     background-color: yellow;
     color: black;
   }
+
+  /* Media Query for devices with a max-width of 600px */
+@media (max-width: 600px) {
+    body {
+      font-size: 14px; /* Adjust font size for better readability */
+    }
+  
+    .timezone-container {
+      padding: 15px; /* Reduce padding for smaller screens */
+    }
+  
+    .clock {
+      width: 90%; /* Make the clock width responsive */
+      height: auto; /* Allow height to adjust automatically */
+    }
+  
+    h1 {
+      font-size: 24px; /* Adjust heading size */
+    }
+  
+    .remove-button {
+      font-size: 14px; /* Adjust button font size */
+      padding: 5px; /* Adjust button padding */
+    }
+  
+    .modal-content {
+      width: 90%; /* Make modal width responsive */
+    }
+  }
+  
+  /* Media Query for devices with a max-width of 480px */
+  @media (max-width: 480px) {
+    body {
+      font-size: 12px; /* Further reduce font size for very small screens */
+    }
+  
+    .timezone-container {
+      padding: 10px; /* Further reduce padding */
+    }
+  
+    .clock {
+      width: 100%; /* Full width for small screens */
+      height: auto; /* Allow height to adjust automatically */
+    }
+  
+    h1 {
+      font-size: 20px; /* Further adjust heading size */
+    }
+  
+    .remove-button {
+      font-size: 12px; /* Adjust button font size */
+      padding: 4px; /* Adjust button padding */
+    }
+  
+    .modal-content {
+      width: 95%; /* Make modal width responsive */
+    }
+  
+    .modal input {
+      font-size: 14px; /* Adjust input font size */
+    }
+  
+    .modal-buttons button {
+      font-size: 12px; /* Adjust button font size in modal */
+      padding: 8px; /* Adjust button padding */
+    }
+  }
