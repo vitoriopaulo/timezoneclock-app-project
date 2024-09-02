@@ -1,4 +1,4 @@
-let timezones = ['America/New_York'];
+let timezones = [];
 
 const addTimezoneButton = document.getElementById('addTimezone');
 addTimezoneButton.addEventListener('click', showPromptModal);
@@ -8,7 +8,16 @@ const promptInput = document.getElementById('promptInput');
 const promptOkButton = document.getElementById('promptOk');
 const promptCancelButton = document.getElementById('promptCancel');
 
-document.addEventListener('DOMContentLoaded', updateTimezones);
+document.addEventListener('DOMContentLoaded', () => {
+  const storedTimezones = JSON.parse(localStorage.getItem('clockList'));
+  if (storedTimezones) {
+    timezones = storedTimezones;
+    updateTimezones();
+  } else {
+    timezones = ['America/New_York'];
+    updateTimezones();
+  }
+});
 
 function showPromptModal() {
   promptModal.style.display = 'block';
@@ -23,6 +32,7 @@ function addTimezone() {
         timezones.push(newTimezone);
         updateTimezones();
         promptModal.style.display = 'none';
+        localStorage.setItem('clockList', JSON.stringify(timezones));
       } catch (error) {
         showWarningMessage('City, State or Region not available. Try again!');
       }
@@ -65,6 +75,7 @@ function updateTimezones() {
           showWarningMessage('This is the ONLY clock available in the list, Remove attempt failed!');
         } else {
           removeTimezone(index);
+          localStorage.setItem('clockList', JSON.stringify(timezones));
         }
       });
 
@@ -123,15 +134,12 @@ function removeTimezone(index) {
 
 // Warning Message Functionality
 function showWarningMessage(message) {
-  const warningMessage = document.createElement('div');
-  warningMessage.className = 'warning-message';
-  warningMessage.textContent = message;
-  document.body.appendChild(warningMessage);
-  
+  const warningMessage = document.getElementById('warningMessage');
+  const warningText = document.getElementById('warningText');
+  warningText.textContent = message;
   warningMessage.style.display = 'block';
   
   setTimeout(() => {
     warningMessage.style.display = 'none';
-    document.body.removeChild(warningMessage);
   }, 5000); // Display for 5 seconds
 }
