@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timezone Clock</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-5" style="color: yellow; margin-top: 50px;">Timezone Clock</h1>
+    <div id="timezones"></div>
+    <div class="d-flex justify-content-center mt-4">
+      <button id="addTimezone" class="btn btn-primary" style="background-color: yellow; color: black;">Add Clock</button>
+    </div>
+  </div>
+
+  <div class="modal" id="promptModal">
+    <div class="modal-content">
+      <h2>Enter a new timezone</h2>
+      <input type="text" id="promptInput" placeholder="e.g. Europe/Berlin" style="color: black;">
+      <div class="modal-buttons">
+        <button id="promptOk" class="btn btn-primary" style="background-color: yellow; color: black;">OK</button>
+        <button id="promptCancel" class="btn btn-danger">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-message" id="warningMessage">
+    <p id="warningText"></p>
+  </div>
+</body>
+</html>
