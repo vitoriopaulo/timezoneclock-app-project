@@ -3,35 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Timezone Clock app to manage your global work schedule."> <!-- SEO Meta Tag -->
+  <meta name="description" content="Timezone Clock app to manage your global work schedule.">
   <title>Timezone Clock</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome meta tag -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <div class="container">
     <h1 class="text-center mb-5" style="color: yellow; margin-top: 50px;">Timezone Clock</h1>
-    <div id="timezones" aria-live="polite"></div> <!-- ARIA tag for live region -->
-    <div class="d-flex justify-content-center mt-4">
-      <button id="addTimezone" class="btn btn-primary" style="background-color: yellow; color: black;" aria-label="Add a new clock">Add Clock</button> <!-- ARIA label -->
+    <div id="timezones" aria-live="polite"></div>
+    <div class="d-flex justify-content-between mt-4">
+      <button id="addTimezone" class="btn btn-primary" style="background-color: yellow; color: black;" aria-label="Add a new clock">Add Clock</button>
+      <button id="aboutButton" class="btn btn-secondary" style="background-color: yellow; color: black;" aria-label="About this app">About</button>
     </div>
   </div>
 
-  <div class="modal" id="promptModal" aria-labelledby="modalTitle" aria-modal="true" role="dialog"> <!-- ARIA attributes for modal -->
+  <div class="modal" id="promptModal" aria-labelledby="modalTitle" aria-modal="true" role="dialog">
     <div class="modal-content">
-      <h2 id="modalTitle">Enter a new timezone</h2> <!-- ARIA label for modal title -->
-      <input type="text" id="promptInput" placeholder="e.g. Europe/Berlin" style="color: black;" aria-required="true"> <!-- ARIA required -->
+      <h2 id="modalTitle">Enter a new timezone</h2>
+      <input type="text" id="promptInput" placeholder="e.g. Europe/Berlin" style="color: black;" aria-required="true">
       <div class="modal-buttons">
-        <button id="promptOk" class="btn btn-primary" style="background-color: yellow; color: black;" aria-label="Confirm timezone">OK</button> <!-- ARIA label -->
-        <button id="promptCancel" class="btn btn-danger" aria-label="Cancel adding timezone">Cancel</button> <!-- ARIA label -->
+        <button id="promptOk" class="btn btn-primary" style="background-color: yellow; color: black;" aria-label="Confirm timezone">OK</button>
+        <button id="promptCancel" class="btn btn-danger" aria-label="Cancel adding timezone">Cancel</button>
       </div>
     </div>
   </div>
 
-  <div class="warning-message" id="warningMessage" role="alert"> <!-- ARIA role for warning message -->
+  <div class="modal" id="aboutModal" aria-labelledby="aboutTitle" aria-modal="true" role="dialog">
+    <div class="modal-content">
+      <h2 id="aboutTitle">About This App</h2>
+      <p class="about-text">This Timezone Clock app allows you to manage multiple clocks for different time zones. You can add up to 7 clocks, each representing a different location.</p>
+      <p class="about-text">To add a clock, simply click the "Add Clock" button and enter the name of the city (e.g., "New York" or "Bahia"). The app will automatically handle the time zone for you!</p>
+      <div class="modal-buttons">
+        <button id="aboutClose" class="btn btn-danger" aria-label="Close about modal">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="warning-message" id="warningMessage" role="alert">
     <p id="warningText"></p>
   </div>
 

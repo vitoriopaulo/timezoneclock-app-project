@@ -1,12 +1,38 @@
 let timezones = [];
 
+// Comprehensive mapping of user-friendly names to IANA time zones
+const timezoneMap = {
+  "California": "America/Los_Angeles",
+  "New York": "America/New_York",
+  "Germany": "Europe/Berlin",
+  "France": "Europe/Paris",
+  "Italy": "Europe/Rome",
+  "Spain": "Europe/Madrid",
+  "United Kingdom": "Europe/London",
+  "Switzerland": "Europe/Zurich",
+  "Argentina": "America/Argentina/Buenos_Aires",
+  "Brazil": "America/Sao_Paulo",
+  "Chile": "America/Santiago",
+  "Colombia": "America/Bogota",
+  "Mexico": "America/Mexico_City",
+  "Japan": "Asia/Tokyo",
+  "Australia": "Australia/Sydney",
+  "India": "Asia/Kolkata",
+  // Add more mappings as needed
+};
+
 const addTimezoneButton = document.getElementById('addTimezone');
 addTimezoneButton.addEventListener('click', showPromptModal);
+
+const aboutButton = document.getElementById('aboutButton');
+aboutButton.addEventListener('click', showAboutModal);
 
 const promptModal = document.getElementById('promptModal');
 const promptInput = document.getElementById('promptInput');
 const promptOkButton = document.getElementById('promptOk');
 const promptCancelButton = document.getElementById('promptCancel');
+const aboutModal = document.getElementById('aboutModal');
+const aboutCloseButton = document.getElementById('aboutClose');
 
 document.addEventListener('DOMContentLoaded', () => {
   const storedTimezones = JSON.parse(localStorage.getItem('clockList'));
@@ -23,22 +49,26 @@ function showPromptModal() {
   promptModal.style.display = 'block';
 }
 
+function showAboutModal() {
+  aboutModal.style.display = 'block';
+}
+
 function addTimezone() {
   const newTimezone = promptInput.value.trim();
-  if (newTimezone) {
-    if (timezones.length < 7) { // Check if the limit is reached
-      try {
-        const now = new Date().toLocaleString('en-US', { timeZone: newTimezone });
-        timezones.push(newTimezone);
-        updateTimezones();
-        promptModal.style.display = 'none';
-        localStorage.setItem('clockList', JSON.stringify(timezones));
-      } catch (error) {
-        showWarningMessage('City, State or Region not available. Try again!');
-      }
+  const matchedTimezone = Object.keys(timezoneMap).find(key => key.toLowerCase() === newTimezone.toLowerCase());
+  
+  if (matchedTimezone) {
+    const ianaTimezone = timezoneMap[matchedTimezone];
+    if (timezones.length < 7) {
+      timezones.push(ianaTimezone);
+      updateTimezones();
+      promptModal.style.display = 'none';
+      localStorage.setItem('clockList', JSON.stringify(timezones));
     } else {
       showWarningMessage('Maximum number of clocks set to 7. Attempt to create new clock failed!');
     }
+  } else {
+    showWarningMessage('Invalid timezone. Please enter a valid region or country name.');
   }
 }
 
@@ -52,9 +82,16 @@ promptCancelButton.addEventListener('click', () => {
   promptInput.value = ''; // Clear the input field on cancel
 });
 
+aboutCloseButton.addEventListener('click', () => {
+  aboutModal.style.display = 'none'; // Close the About modal
+});
+
 window.addEventListener('click', (event) => {
   if (event.target === promptModal) {
     promptModal.style.display = 'none';
+  }
+  if (event.target === aboutModal) {
+    aboutModal.style.display = 'none';
   }
 });
 
