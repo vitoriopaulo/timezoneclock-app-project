@@ -3,34 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Timezone Clock app to manage your global work schedule."> <!-- SEO Meta Tag -->
   <title>Timezone Clock</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome meta tag -->
 </head>
 <body>
   <div class="container">
     <h1 class="text-center mb-5" style="color: yellow; margin-top: 50px;">Timezone Clock</h1>
-    <div id="timezones"></div>
+    <div id="timezones" aria-live="polite"></div> <!-- ARIA tag for live region -->
     <div class="d-flex justify-content-center mt-4">
-      <button id="addTimezone" class="btn btn-primary" style="background-color: yellow; color: black;">Add Clock</button>
+      <button id="addTimezone" class="btn btn-primary" style="background-color: yellow; color: black;" aria-label="Add a new clock">Add Clock</button> <!-- ARIA label -->
     </div>
   </div>
 
-  <div class="modal" id="promptModal">
+  <div class="modal" id="promptModal" aria-labelledby="modalTitle" aria-modal="true" role="dialog"> <!-- ARIA attributes for modal -->
     <div class="modal-content">
-      <h2>Enter a new timezone</h2>
-      <input type="text" id="promptInput" placeholder="e.g. Europe/Berlin" style="color: black;">
+      <h2 id="modalTitle">Enter a new timezone</h2> <!-- ARIA label for modal title -->
+      <input type="text" id="promptInput" placeholder="e.g. Europe/Berlin" style="color: black;" aria-required="true"> <!-- ARIA required -->
       <div class="modal-buttons">
-        <button id="promptOk" class="btn btn-primary" style="background-color: yellow; color: black;">OK</button>
-        <button id="promptCancel" class="btn btn-danger">Cancel</button>
+        <button id="promptOk" class="btn btn-primary" style="background-color: yellow; color: black;" aria-label="Confirm timezone">OK</button> <!-- ARIA label -->
+        <button id="promptCancel" class="btn btn-danger" aria-label="Cancel adding timezone">Cancel</button> <!-- ARIA label -->
       </div>
     </div>
   </div>
 
-  <div class="warning-message" id="warningMessage">
+  <div class="warning-message" id="warningMessage" role="alert"> <!-- ARIA role for warning message -->
     <p id="warningText"></p>
   </div>
+
+  <footer style="background-color: black; color: yellow; text-align: center; padding: 10px; position: relative; bottom: 0; width: 100%; margin-top: 30px;">
+    Made with <i class="fas fa-heart" style="color: red;"></i> By Vitorio Paulo
+  </footer>
 </body>
 </html>

@@ -42,10 +42,14 @@ function addTimezone() {
   }
 }
 
-promptOkButton.addEventListener('click', addTimezone);
+promptOkButton.addEventListener('click', () => {
+  addTimezone();
+  promptInput.value = ''; // Clear the input field after adding
+});
 
 promptCancelButton.addEventListener('click', () => {
   promptModal.style.display = 'none';
+  promptInput.value = ''; // Clear the input field on cancel
 });
 
 window.addEventListener('click', (event) => {
