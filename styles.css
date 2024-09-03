@@ -151,110 +151,6 @@ h2 {
 
 /* Media Query for devices with a max-width of 600px */
 @media (max-width: 600px) {
-<<<<<<< HEAD
-  body {
-    font-size: 14px; /* Adjust font size for better readability */
-  }
-
-  .timezone-container {
-    padding: 15px; /* Reduce padding for smaller screens */
-  }
-
-  .clock {
-    width: 90vw; /* Use viewport width for responsiveness */
-    height: 90vw; /* Set height equal to width to maintain circular shape */
-    max-width: 400px; /* Set a max width for larger screens */
-    max-height: 400px; /* Set a max height for larger screens */
-    border: 12px solid #ffd700; /* Keep the border */
-    border-radius: 50%; /* Ensure it remains circular */
-    position: relative; /* Required for positioning hands */
-    margin: 0 auto; /* Center the clock */
-  }
-
-  .hour-hand,
-  .minute-hand {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background-color: #c0c0c0; /* Color of the hour and minute hands */
-    transform-origin: bottom center;
-  }
-
-  .minute-hand {
-    height: 120px; /* Adjusted height for the minute hand */
-  }
-
-  h1 {
-    font-size: 24px; /* Adjust heading size */
-  }
-
-  .remove-button {
-    font-size: 14px; /* Adjust button font size */
-    padding: 5px; /* Adjust button padding */
-    margin-top: 10px; /* Add space above the button */
-  }
-
-  .modal-content {
-    width: 90%; /* Make modal width responsive */
-  }
-}
-
-/* Media Query for devices with a max-width of 600px */
-@media (max-width: 600px) {
-  body {
-    font-size: 14px; /* Adjust font size for better readability */
-  }
-
-  .timezone-container {
-    padding: 15px; /* Reduce padding for smaller screens */
-  }
-
-  .clock {
-    width: 90vw; /* Use viewport width for responsiveness */
-    height: 90vw; /* Set height equal to width to maintain circular shape */
-    max-width: 400px; /* Set a max width for larger screens */
-    max-height: 400px; /* Set a max height for larger screens */
-    border: 12px solid #ffd700; /* Keep the border */
-    border-radius: 50%; /* Ensure it remains circular */
-    position: relative; /* Required for positioning hands */
-    margin: 0 auto; /* Center the clock */
-  }
-
-  .hour-hand,
-  .minute-hand {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background-color: #c0c0c0; /* Color of the hour and minute hands */
-    transform-origin: bottom center;
-  }
-
-  .hour-hand {
-    height: 70px; /* Adjusted height for the hour hand */
-  }
-
-  .minute-hand {
-    height: 90px; /* Adjusted height for the minute hand */
-  }
-
-  h1 {
-    font-size: 24px; /* Adjust heading size */
-  }
-
-  h2 {
-    margin-bottom: 15px; /* Add space below the H2 element */
-  }
-
-  .remove-button {
-    font-size: 14px; /* Adjust button font size */
-    padding: 5px; /* Adjust button padding */
-    margin-top: 10px; /* Add space above the button */
-  }
-
-  .modal-content {
-    width: 90%; /* Make modal width responsive */
-  }
-=======
 body {
   font-size: 14px; /* Adjust font size for better readability */
 }
@@ -294,7 +190,6 @@ h1 {
 .modal-content {
   width: 90%; /* Make modal width responsive */
 }
->>>>>>> development
 }
 
 /* Media Query for devices with a max-width of 600px */
